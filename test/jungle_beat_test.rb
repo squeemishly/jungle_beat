@@ -48,4 +48,5 @@ class JungleBeatTest < Minitest::Test
   def test_it_makes_sweet_beats_baby
     #ummmm? how can you test if those beats are sweet? I mean isn't at least some of this subjective?
   end
+
 end

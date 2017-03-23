@@ -49,7 +49,6 @@ class LinkedList
     position.times do
       current = current.next_node
     end
-
     new_node = Node.new(data, current.next_node)
     current.next_node = new_node
   end
@@ -81,12 +80,10 @@ class LinkedList
 
   def pop
     temp = head.tail.data
-    current = @head
-
+    current = head
     until current.next_node.next_node.nil?
       current = current.next_node
     end
-
     current.next_node = nil
     temp
   end
