@@ -3,10 +3,9 @@ require 'pry'
 
 class LinkedList
 
-  attr_accessor :head, :append
+  attr_accessor :head
   def initialize
     @head       = nil
-    @append     = 0
   end
   
   def append(phrase)
@@ -15,7 +14,7 @@ class LinkedList
       head.data
     else
       @head.tail.next_node = Node.new(phrase)
-      head.tail.next_node
+      phrase
     end
   end
   
@@ -40,4 +39,22 @@ class LinkedList
     list
   end
 
+  def prepend(data)
+    current = Node.new(data, @head)
+    @head = current
+  end
+
+  def insert(position, data)    
+    position -= position
+    current = @head
+
+    position.times do
+      current = current.next_node
+    end
+
+    new_node = Node.new(data, current.next_node)
+    current.next_node = new_node
+  end
+
+binding.pry
 end

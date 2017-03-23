@@ -70,5 +70,23 @@ class LinkedListTest < Minitest::Test
     assert_equal "doop deep", list.to_string
   end
 
+  def test_add_a_node_to_the_beginning
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    assert_equal "dop plop suu", list.to_string
+    assert_equal 3, list.count
+  end
+
+  def test_add_a_sound_in_the_middle
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    assert_equal "dop woo plop suu", list.to_string
+  end
+
 end
 
