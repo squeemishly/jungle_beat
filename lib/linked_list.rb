@@ -72,6 +72,28 @@ class LinkedList
     list
   end
 
+  def includes?(word)
+    if to_string.include?(word)
+      true
+    else
+      false
+    end
+  end
+
+  def pop
+    temp = head.tail.data
+    current = head
+
+    (count-1).times do
+      current = current.next_node
+    end
+
+    current.next_node = nil
+    @head = current
+
+    temp
+  end
+
 end
 
 

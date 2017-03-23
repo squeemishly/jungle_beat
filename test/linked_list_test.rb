@@ -37,7 +37,7 @@ class LinkedListTest < Minitest::Test
     assert_equal list.head.data, "doop"
   end
 
-  def test_links_node_to_list
+  def test_it_links_node_to_list
     list = LinkedList.new
     list.append("doop")
     list.append("deep")
@@ -88,7 +88,7 @@ class LinkedListTest < Minitest::Test
     assert_equal "dop woo plop suu", list.to_string
   end
 
-  def test_find_a_single_node
+  def test_find_some_sounds
     list = LinkedList.new
     list.append("deep")
     list.append("woo")
@@ -96,6 +96,29 @@ class LinkedListTest < Minitest::Test
     list.append("shu")
     list.append("blop")
     assert_equal "shi", list.find(2,1)
+    assert_equal "woo shi shu", list.find(1,3)
+  end
+
+  def test_it_includes_a_value
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    assert_equal true, list.includes?("deep")
+    assert_equal false, list.includes?("dep")
+  end
+
+  def test_it_can_remove_the_last_element
+    list = LinkedList.new
+    list.append("deep")
+    list.append("woo")
+    list.append("shi")
+    list.append("shu")
+    list.append("blop")
+    assert_equal "blop", list.pop
+    assert_equal "shu", list.pop
   end
 
 end
