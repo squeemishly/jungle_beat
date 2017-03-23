@@ -1,5 +1,4 @@
 require './lib/node'
-require 'pry'
 
 class LinkedList
   attr_accessor :head
@@ -87,19 +86,9 @@ class LinkedList
     until current.next_node.next_node.nil?
       current = current.next_node
     end
-    
+
     current.next_node = nil
     temp
   end
 
 end
-
-
-list = LinkedList.new
-list.append('zero')
-list.append('one')
-list.append('two')
-list.append('three')
-list.append('four')
-binding.pry
-""
