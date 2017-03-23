@@ -2,10 +2,10 @@ require './lib/node'
 require 'pry'
 
 class LinkedList
-
   attr_accessor :head
+
   def initialize
-    @head       = nil
+    @head = nil
   end
   
   def append(phrase)
@@ -30,8 +30,8 @@ class LinkedList
 
   def to_string
     list = ""
-    list << @head.data
-    current = @head.next_node
+    list << head.data
+    current = head.next_node
     until current.nil?
       list << " " + current.data
       current = current.next_node
@@ -40,14 +40,13 @@ class LinkedList
   end
 
   def prepend(data)
-    current = Node.new(data, @head)
+    current = Node.new(data, head)
     @head = current
   end
 
   def insert(position, data)    
+    current = head
     position -= position
-    current = @head
-
     position.times do
       current = current.next_node
     end
@@ -56,5 +55,31 @@ class LinkedList
     current.next_node = new_node
   end
 
-binding.pry
+  def find(starting_value, ending_value)
+    current = head
+    list = ""
+    starting_value.times do
+      current = current.next_node
+    end
+    ending_value.times do
+      if list == ""
+        list << current.data
+      else
+        list << " " + current.data
+      end
+      current = current.next_node
+    end
+    list
+  end
+
 end
+
+
+list = LinkedList.new
+list.append('zero')
+list.append('one')
+list.append('two')
+list.append('three')
+list.append('four')
+binding.pry
+""
